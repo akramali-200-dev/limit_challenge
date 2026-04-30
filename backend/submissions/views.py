@@ -6,7 +6,8 @@ from submissions.filters.submission import SubmissionFilterSet
 
 
 class SubmissionViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = models.Submission.objects.all()
+    queryset = models.Submission.objects.all().order_by('-created_at')
+    # queryset = models.Submission.objects.all()
     filterset_class = SubmissionFilterSet
 
     def get_queryset(self):
